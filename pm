@@ -33,6 +33,7 @@ backup ()
 			title=${pass/$disk\//}
 			title=${title/\.gpg/}
 			password=$(pass "$title")
+			password=${password//$/\\$} # Escape dollar signs
 			if [[ $title =~ ^Backups/ ]]
 			then
 				# We dont backup the addresses and passwords of our backup machines
@@ -57,7 +58,7 @@ backup ()
 		for t in \${titles[*]}
 		do
 			echo \"Backing up \$t...\"
-			echo \${passw[\$i]} | pass add -fm \"\$t\" > /dev/null
+			echo \"\${passw[\$i]}\" | pass add -fm \"\$t\" > /dev/null
 			((i++))
 		done
 		titles=( ) # Clear the data
