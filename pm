@@ -27,6 +27,7 @@ backup ()
 	# Get Passwords and thier titles
 	while read -r group
 	do
+		shopt -s nullglob
 		for pass in "$group"/*.gpg
 		do
 			title=${pass/$disk\//}
