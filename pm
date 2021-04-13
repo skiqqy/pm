@@ -4,7 +4,15 @@
 usage ()
 {
 	cat << EOF
-TODO ~ Describe usage
+pm ~ The pass wrapper
+
+Usage: pm [ COMMAND ] [ OPTIONS]... [ ARGS ]...
+
+Examples
+--------
+$ pm backup # Backs up your passwords to remote servers
+
+$ pm help # For more help
 EOF
 	exit "$1"
 }
