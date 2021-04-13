@@ -19,7 +19,7 @@ backup ()
 			title=${pass/$disk\//}
 			title=${title/\.gpg/}
 			password=$(pass "$title")
-			echo "$title:$password"
+			echo "$title:$password" # Just for debugging
 		done
 	done < <(find "$disk" -type d)
 }
